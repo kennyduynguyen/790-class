@@ -18,13 +18,13 @@ namespace ContosoUniversity.Controllers
             return userIdentity;
         }
 
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
 
-        public string lastName { get; set; }
+        public string LastName { get; set; }
 
-        public DateTime timeCreated { get; set; }
+        public DateTime CreatedOn { get; set; }
 
-        public DateTime LastLoginTime { get; set; }
+        public DateTime? LastLogin { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

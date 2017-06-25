@@ -83,11 +83,11 @@ namespace ContosoUniversity.Controllers
             {
                 case SignInStatus.Success:
                     // Retrieve the user who is logging and add the timestamp for that login
-                    // ApplicationUser user = new ApplicationUser();
-                    // user = db.Users.Find(UserManager.FindByEmail(model.Email).Id);
-                    // user.LastLoginTime = DateTime.Now;
-                    // db.Entry(user).State = EntityState.Modified;
-                    // db.SaveChanges();
+                    ApplicationUser user = new ApplicationUser();
+                    user = db.Users.Find(UserManager.FindByEmail(model.Email).Id);
+                    user.LastLogin = DateTime.Now;
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
 
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -149,7 +149,7 @@ namespace ContosoUniversity.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.RolesId = new SelectList(db.Roles, "name", "name");
+            ViewBag.RolesId = new SelectList(db.Roles, "id", "name");
             return View();
         }
 
@@ -162,12 +162,12 @@ namespace ContosoUniversity.Controllers
         {
             if (ModelState.IsValid)
             {
-                var timeCreated = DateTime.Today;
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, firstName = model.firstName, lastName = model.lastName, timeCreated = timeCreated };
+                var timeCreated = DateTime.Now;
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.firstName, LastName = model.lastName, CreatedOn = timeCreated };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await UserManager.AddToRoleAsync(user.Id, model.RolesId);
+                    await UserManager.AddToRoleAsync(user.Id, db.Roles.Find(model.RolesId).Name);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
