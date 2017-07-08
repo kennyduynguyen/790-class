@@ -25,6 +25,8 @@ namespace ContosoUniversity.Controllers
         public DateTime CreatedOn { get; set; }
 
         public DateTime? LastLogin { get; set; }
+
+        public string profile { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

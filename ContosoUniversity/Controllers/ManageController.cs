@@ -51,7 +51,7 @@ namespace ContosoUniversity.Controllers
         }
 
         //
-        // GET: /Manage/Index
+        // GET: /Manager/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =

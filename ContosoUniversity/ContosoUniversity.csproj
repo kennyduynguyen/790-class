@@ -164,6 +164,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ViewProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +191,10 @@
     <Compile Include="Migrations\201706250008024_update-user-columns.cs" />
     <Compile Include="Migrations\201706250008024_update-user-columns.Designer.cs">
       <DependentUpon>201706250008024_update-user-columns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707080038332_new-user-field.cs" />
+    <Compile Include="Migrations\201707080038332_new-user-field.Designer.cs">
+      <DependentUpon>201707080038332_new-user-field.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -270,6 +275,7 @@
     <Content Include="Views\Enrollment\Details.cshtml" />
     <Content Include="Views\Enrollment\Edit.cshtml" />
     <Content Include="Views\Enrollment\Index.cshtml" />
+    <Content Include="Views\ViewProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706250008024_update-user-columns.resx">
       <DependentUpon>201706250008024_update-user-columns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707080038332_new-user-field.resx">
+      <DependentUpon>201707080038332_new-user-field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

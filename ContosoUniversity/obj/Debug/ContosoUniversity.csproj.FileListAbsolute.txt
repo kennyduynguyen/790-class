@@ -126,3 +126,4 @@ G:\ContosoUniversity\ContosoUniversity\bin\PasswordHasher.pdb
 G:\ContosoUniversity\ContosoUniversity\bin\PasswordHasher.xml
 G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.modifylastLogindatatype.resources
 G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.updateusercolumns.resources
+G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.newuserfield.resources

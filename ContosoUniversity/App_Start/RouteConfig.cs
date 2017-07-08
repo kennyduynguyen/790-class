@@ -21,8 +21,8 @@ namespace ContosoUniversity
 
             routes.MapRoute(
                 name: "user",
-                url: "{FirstName}/LastName",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{FirstName}/{LastName}",
+                defaults: new { controller = "ViewProfileController", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
