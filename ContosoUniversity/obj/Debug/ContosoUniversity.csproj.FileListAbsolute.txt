@@ -50,7 +50,6 @@ G:\ContosoUniversity\ContosoUniversity\bin\Microsoft.Owin.Security.OAuth.xml
 G:\ContosoUniversity\ContosoUniversity\bin\Microsoft.Owin.Security.Google.xml
 G:\ContosoUniversity\ContosoUniversity\bin\Microsoft.Owin.Security.Twitter.xml
 G:\ContosoUniversity\ContosoUniversity\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.csprojResolveAssemblyReference.cache
 G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.dll
 G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.pdb
 G:\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.InitialCreate.resources
