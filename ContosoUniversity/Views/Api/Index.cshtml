@@ -1,7 +1,19 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Browse Our Products";
 }
 
-<h2>@ViewBag.result</h2>
 
+<h2>@ViewBag.Title</h2>
+<div id="wrap">
+    <div id="columns" class="columns_4">
+        @for (var i = 0; i < 15; i++)
+        { <figure>
+            <img src=@ViewBag.item.custitem_product_picture_link>
+            <figcaption>@ViewBag.item.storedescription</figcaption>
+            <span class="price">@ViewBag.item.onlinecustomerprice_detail.onlinecustomerprice_formatted</span>
+            <a class="button" href="#">Add To Cart</a>
+        </figure> 
+        }
+    </div>
+</div>
