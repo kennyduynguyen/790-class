@@ -9,8 +9,8 @@
 }
 
 
-<h2>@ViewBag.Title</h2>
-<a href="/Api" class="btn btn-default">Back to search</a>
+<h2>@ViewBag.Title - <a href="/Api" class="btn btn-default">Back to search</a></h2>
+
 <div id="wrap">
     <div id="columns" class="columns_4">
         @if (hasItem)
@@ -23,7 +23,9 @@
                 <figure>
                     <img src=@item_link>
                     <figcaption>@item.storedescription</figcaption>
-                    <span class="price">@item.onlinecustomerprice_detail.onlinecustomerprice_formatted</span>
+                    <span class="price"><b>Price:</b> @item.onlinecustomerprice_detail.onlinecustomerprice_formatted</span> <br />
+                    <span class="price" ><b>Commodity code:</b> @item.custitem_commodity_code</span> <br />
+                    <span class="price"><b>Min Order:</b> @item.custitem_order_in_increment_qty</span>
                     <a class="button" href="#">Add To Cart</a>
                 </figure>
             }

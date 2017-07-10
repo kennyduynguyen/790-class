@@ -4,13 +4,14 @@
 
 
 <h2>@ViewBag.Title</h2>
-<form class="form-inline" action="/Api/Index" method="post">
-    <label class="sr-only" for="inlineFormInput">Search Item</label>
-    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="merchandise, grocery" name="searchString">
-
-    <label class="sr-only" for="inlineFormInputGroup"># Item Fetch</label>
-    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Number of items to fetch" name="fetchNumber">
+<form action="/Api/Index" method="post">
+    <div class="form-group">
+        <label for="searchItem">Search Item</label>
+        <input type="text" class="form-control" id="searchItem" placeholder="Browse our large inventory here" name="searchString">
+    </div>
+    <div class="form-group">
+        <label for="fetchNumber">Number of Items</label>
+        <input type="text" class="form-control" id="fetchNumber" placeholder="Number of items to fetch" name="fetchNumber">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
