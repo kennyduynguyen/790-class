@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Results of your search";
+    var hasItem = false;
+    if (ViewBag.items.Count > 0)
+    {
+        hasItem = true;
+    }
+}
+
+
+<h2>@ViewBag.Title</h2>
+<a href="/Api" class="btn btn-default">Back to search</a>
+<div id="wrap">
+    <div id="columns" class="columns_4">
+        @if (hasItem)
+        {
+            foreach (var item in ViewBag.items) {
+                var item_link = item.custitem_product_picture_link;
+                if (item_link == "") {
+                    item_link = "https://www.shilpasys.com/new/wp-content/uploads/2014/04/shop-placeholder.png";
+                }
+                <figure>
+                    <img src=@item_link>
+                    <figcaption>@item.storedescription</figcaption>
+                    <span class="price">@item.onlinecustomerprice_detail.onlinecustomerprice_formatted</span>
+                    <a class="button" href="#">Add To Cart</a>
+                </figure>
+            }
+        }
+        else {
+            <h2>There is no item to display.</h2>
+        }
+    </div>
+</div>

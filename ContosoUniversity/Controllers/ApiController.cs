@@ -13,28 +13,46 @@ namespace ContosoUniversity.Controllers
 {
     public class ApiController : Controller
     {
-        static string _address = "http://www.txsmartbuy.com/api/items?include=facets&fieldset=search&language=en&country=US&currency=USD&pricelevel=5&custitem_exclude_from_search_results=false&sort=custitem_preferred_term%3Aasc&limit=50&offset=0&q=paper%2Ctowel";
+        static string _address = "http://www.txsmartbuy.com/api/items?include=facets&fieldset=search&language=en&country=US&currency=USD&pricelevel=5&custitem_exclude_from_search_results=false&sort=custitem_preferred_term%3Aasc&limit=50&offset=0&q=";
+        static List<object> _result = new List<object>();
 
-        public async Task<ActionResult> Index()
+        public async Task<List<Object>> Search(string searchString, int fetchNumber)
         {
-            var json = await Get();
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var json = await GetExternalResponse(searchString);
             dynamic item = JsonConvert.DeserializeObject(json);
-            // var result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ProductItems>>(json);
-            ViewBag.item = item.items[1];
-            return View();
-        }
 
-        public async Task<string> Get()
-        {
-            var result = await GetExternalResponse();
+            // Store the number of items in a List to pass over the view
+            List<object> result = new List<object>();
+            for (var i = 0; i < fetchNumber; i++ )
+            {
+                result.Add(item.items[i]);
+            }
             return result;
         }
 
-        private async Task<string> GetExternalResponse()
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Index(string searchString, int fetchNumber)
+        {
+            _result = await Search(searchString, fetchNumber);
+            return RedirectToAction("Display");
+        }
+
+        public ActionResult Display()
+        {
+            ViewBag.items = _result;
+            return View();
+        }
+
+        private async Task<string> GetExternalResponse(string searchString)
         {
             var client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(_address);
+            HttpResponseMessage response = await client.GetAsync(_address + searchString);
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
             return result;
